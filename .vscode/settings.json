@@ -3,5 +3,6 @@
     "Daos",
     "Servlets",
     "jstl"
-  ]
+  ],
+  "java.configuration.updateBuildConfiguration": "disabled"
 }

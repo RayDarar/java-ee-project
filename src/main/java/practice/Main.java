@@ -9,15 +9,30 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/")
+@WebServlet("/test")
 public class Main extends HttpServlet {
 	private static final long serialVersionUID = -4751096228274971485L;
 
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter res = response.getWriter();
-		response.setHeader("Content-Type", "text/html");
+	protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		PrintWriter writer = res.getWriter();
+		res.setHeader("Content-Type", "text/html");
 
-		res.write("Hello, World!");
+		String username = req.getParameter("username");
+
+		if (username == "RayDarar") {
+			writer.write("<h1>Welcome!</h1>");
+			return;
+		}
+
+
+		res.sendError(404);
+	}
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		int result = 1 / 0;
+
+		res.getWriter().write("Wow" + result);
 	}
 }
