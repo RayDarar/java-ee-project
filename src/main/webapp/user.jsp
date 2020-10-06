@@ -10,7 +10,7 @@
   <body>
     <ul>
       <c:forEach var="user" items="${users}">
-        <li>${user}</li>
+        <li>${user.id} || ${user.name}</li>
       </c:forEach>
     </ul>
   </body>
