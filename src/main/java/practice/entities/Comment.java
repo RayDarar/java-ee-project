@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 public class Comment {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
   private int id;
 
   @Column(name = "text")

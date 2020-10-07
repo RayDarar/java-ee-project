@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 public class Post {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "id")
   private int id;
 
   @Column(name = "text")
