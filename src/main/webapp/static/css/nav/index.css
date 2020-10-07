@@ -1,0 +1,9 @@
+@import "./actions.css";
+@import "./users.css";
+
+.nav {
+  grid-area: nav;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: column;
+}

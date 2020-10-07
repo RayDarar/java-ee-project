@@ -10,9 +10,9 @@ public class DatabaseService {
 
       // this should be configurable elsewhere,
       // but for the simplicity, I'll go with hardcoded one
-      String dbURL = "jdbc:mysql:// localhost:3306/";
+      String dbURL = "jdbc:mysql://localhost:3306/";
       String dbName = "java_ee_project";
-      String dbUsername = "root";
+      String dbUsername = "raydarar";
       String dbPassword = "super_secret";
 
       Class.forName(dbDriver);

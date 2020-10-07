@@ -1,0 +1,12 @@
+.header {
+  grid-area: header;
+  background-color: black;
+
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  margin-left: 1em;
+}
