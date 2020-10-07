@@ -1,6 +1,4 @@
-<%
-  String message = pageContext.getException().getMessage();
-%>
+<% String message = pageContext.getException().getMessage(); %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +9,8 @@
   </head>
   <body>
     <h1>400</h1>
+
+    <p>Something went wrong...</p>
 
     <p>Exception: <%= message %></p>
     <button onclick="history.back()">Back</button>

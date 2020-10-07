@@ -11,3 +11,5 @@ insert into users(name) values('User-1');
 insert into users(name) values('User-2');
 insert into users(name) values('User-3');
 insert into users(name) values('User-4');
+
+drop table users;
