@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -12,7 +13,25 @@
       <jsp:include page="../components/header.jsp" />
       <jsp:include page="../components/navigation.jsp" />
       <main class="main">
-        ${test}
+        <form class="sign-in elevation-1 card" action="/sign-in" method="POST">
+          <c:if test="${result == true}">
+            <p class="error-message">Неверный логин или пароль, попробуйте заново</p>
+          </c:if>
+          <input
+            type="text"
+            name="username"
+            placeholder="Username"
+            class="input"
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            class="input"
+          />
+          <button class="button" type="submit">Sign-In</button>
+          <a class="button button_text" href="sign-up">Go to Sign-Up</a>
+        </form>
       </main>
     </div>
   </body>

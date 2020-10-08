@@ -11,10 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/sign-in")
 public class SignInPage extends HttpServlet {
   private static final long serialVersionUID = 1L;
+  private static final String PATH = "/pages/sign-in.jsp";
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    req.setAttribute("test", "test");
-    getServletContext().getRequestDispatcher("/pages/sign-in.jsp").forward(req, res);
+    getServletContext().getRequestDispatcher(PATH).forward(req, res);
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    String username = req.getParameter("username");
+    String password = req.getParameter("password");
+
+    if (username != null && password != null) {
+      getServletContext().getRequestDispatcher("/index.jsp").forward(req, res);
+      return;
+    }
+
+    req.setAttribute("result", false);
+    getServletContext().getRequestDispatcher(PATH).forward(req, res);
   }
 }

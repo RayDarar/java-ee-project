@@ -1,12 +1,10 @@
 export class TokenService {
-  static checkToken() {
-    const token = TokenService.getToken();
-
-    if (!token) return false;
-    return true;
-  }
-
-  static getToken() {
-    return localStorage.getItem("token");
+  static async checkToken() {
+    try {
+      const result = await fetch("/session");
+      return result.status == 200;
+    } catch (error) {
+      return false;
+    }
   }
 }
