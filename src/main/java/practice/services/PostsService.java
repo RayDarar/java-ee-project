@@ -38,7 +38,7 @@ public class PostsService {
 
   public static void deletePostById(int postId) {
     try (Connection conn = DatabaseService.getConnection()) {
-      String sql = "delete posts where id = ?";
+      String sql = "delete from posts where id = ?";
       try (PreparedStatement statement = conn.prepareStatement(sql)) {
         statement.setInt(1, postId);
         statement.executeUpdate();

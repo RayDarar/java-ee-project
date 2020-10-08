@@ -12,25 +12,6 @@ function run() {
       ? "+"
       : "x";
   };
-
-  const posts = document.querySelectorAll(".post");
-  if (!posts) return;
-
-  for (const post of posts) {
-    const button = post.querySelector(".remove-icon");
-    if (!button) continue;
-
-    button.onclick = async () => {
-      const body = new FormData();
-      body.append("post-id", +post.dataset.id);
-      await fetch("posts", {
-        method: "DELETE",
-        body,
-      });
-
-      RouterService.reload();
-    };
-  }
 }
 
 run();

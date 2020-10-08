@@ -15,17 +15,18 @@
       <main class="main">
         <div class="posts">
           <c:forEach var="post" items="${posts}">
-            <article class="post elevation-1 card" data-id="${post.id}">
+            <article class="post elevation-1 card">
               <header class="post__header">
                 <p class="post__header-user">
                   ${post.user.firstName} ${post.user.lastName}
                 </p>
                 <p class="post__header-time">${post.creationDate}</p>
               </header>
-              <div class="post__text-wrapper">
+              <form action="delete-post" method="POST" class="post__text-wrapper">
                 <p class="post__text">${post.text}</p>
-                <div class="icon remove-icon">x</div>
-              </div>
+                <button class="icon remove-icon" type="submit">x</button>
+                <input type="hidden" name="post-id" value="${post.id}" />
+              </form>
               <div class="comments">
                 <c:forEach var="comment" items="${post.comments}">
                   <div class="comment">
