@@ -48,4 +48,17 @@ public class PostsService {
       return;
     }
   }
+
+  public static void createPost(int userId, String text) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "insert into posts(text, userId) values(?, ?);";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        statement.setString(1, text);
+        statement.setInt(2, userId);
+        statement.executeUpdate();
+      }
+    } catch (Exception e) {
+      return;
+    }
+  }
 }

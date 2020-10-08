@@ -7,10 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import practice.common.ResultMessages;
 import practice.entities.User;
+import practice.services.SessionService;
 import practice.services.UsersService;
 
 @WebServlet("/sign-up")
@@ -50,8 +50,7 @@ public class SignUpPage extends HttpServlet {
       return;
     }
 
-    HttpSession session = req.getSession();
-    session.setAttribute("username", username.toLowerCase());
+    SessionService.setToken(req, username);
     getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
   }
 }

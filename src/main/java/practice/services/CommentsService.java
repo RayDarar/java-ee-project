@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import practice.common.ResultMessages;
 import practice.entities.Comment;
 import practice.entities.Post;
 

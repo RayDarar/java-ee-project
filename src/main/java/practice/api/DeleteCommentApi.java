@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import practice.services.CommentsService;
+import practice.services.SessionService;
 
 @WebServlet("/delete-comment")
 public class DeleteCommentApi extends HttpServlet {
@@ -19,6 +20,6 @@ public class DeleteCommentApi extends HttpServlet {
     int commentId = Integer.parseInt(req.getParameter("comment-id"));
     CommentsService.deleteCommentById(commentId);
 
-    res.sendRedirect(req.getHeader("referer"));
+    SessionService.redirectBack(req, res);
   }
 }

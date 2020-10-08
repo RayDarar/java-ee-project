@@ -9,11 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import practice.entities.Post;
 import practice.entities.User;
 import practice.services.PostsService;
+import practice.services.SessionService;
 import practice.services.UsersService;
 
 @WebServlet("/home")
@@ -22,8 +22,7 @@ public class HomePage extends HttpServlet {
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    HttpSession session = req.getSession();
-    String token = (String) session.getAttribute("username");
+    String token = SessionService.getToken(req);
     ServletContext context = getServletContext();
     if (token == null) {
       context.getRequestDispatcher("/pages/sign-in.jsp").forward(req, res);

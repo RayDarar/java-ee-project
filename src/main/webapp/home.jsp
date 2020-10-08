@@ -60,7 +60,7 @@
         </div>
         <form
           class="make-post-wrapper make-post-wrapper_hidden elevation-3"
-          action="posts"
+          action="create-post"
           method="post"
         >
           <textarea
