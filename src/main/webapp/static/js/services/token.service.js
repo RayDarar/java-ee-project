@@ -7,4 +7,10 @@ export class TokenService {
       return false;
     }
   }
+
+  static async logout() {
+    await fetch("/session", {
+      method: "DELETE",
+    });
+  }
 }

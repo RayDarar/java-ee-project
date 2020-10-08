@@ -25,4 +25,15 @@ public class SessionApi extends HttpServlet {
       return;
     }
   }
+
+  @Override
+  protected void doDelete(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+    HttpSession session = req.getSession();
+
+    String token = (String) session.getAttribute("username");
+    if (token == null)
+      return;
+
+    session.removeAttribute("username");
+  }
 }

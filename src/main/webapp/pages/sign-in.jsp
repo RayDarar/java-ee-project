@@ -14,8 +14,8 @@
       <jsp:include page="../components/navigation.jsp" />
       <main class="main">
         <form class="sign-in elevation-1 card" action="/sign-in" method="POST">
-          <c:if test="${result == true}">
-            <p class="error-message">Неверный логин или пароль, попробуйте заново</p>
+          <c:if test="${result == false}">
+            <p class="error-message">Invalid username or password, try again</p>
           </c:if>
           <input
             type="text"
