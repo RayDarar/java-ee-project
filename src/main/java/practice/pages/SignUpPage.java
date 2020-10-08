@@ -50,6 +50,7 @@ public class SignUpPage extends HttpServlet {
       return;
     }
 
+    UsersService.setNavUsers(req);
     SessionService.setToken(req, username);
     getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
   }

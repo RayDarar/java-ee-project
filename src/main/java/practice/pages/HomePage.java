@@ -32,6 +32,8 @@ public class HomePage extends HttpServlet {
     List<Post> userPosts = PostsService.getUserPosts(user);
 
     context.setAttribute("posts", userPosts);
+
+    UsersService.setNavUsers(req);
     context.getRequestDispatcher("/home.jsp").forward(req, res);
   }
 }

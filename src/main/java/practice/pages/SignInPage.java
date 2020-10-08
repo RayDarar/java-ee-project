@@ -31,6 +31,7 @@ public class SignInPage extends HttpServlet {
       User result = UsersService.findOne(username.toLowerCase());
 
       if (result != null && result.getPassword().equals(password)) {
+        UsersService.setNavUsers(req);
         SessionService.setToken(req, username);
         getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
         return;

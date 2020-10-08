@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import practice.common.ResultMessages;
 import practice.entities.User;
@@ -38,7 +42,8 @@ public class UsersService {
         statement.setString(1, username);
 
         ResultSet result = statement.executeQuery();
-        if (!result.next()) return null;
+        if (!result.next())
+          return null;
 
         User user = new User();
         user.setId(result.getInt(1));
@@ -50,6 +55,29 @@ public class UsersService {
       }
     } catch (Exception e) {
       return null;
+    }
+  }
+
+  public static void setNavUsers(HttpServletRequest req) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "select * from users";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        ResultSet result = statement.executeQuery();
+        List<User> users = new ArrayList<>();
+        while (result.next()) {
+          User user = new User();
+          user.setId(result.getInt(1));
+          user.setUsername(result.getString(2));
+          user.setFirstName(result.getString(4));
+          user.setLastName(result.getString(5));
+
+          users.add(user);
+        }
+
+        req.setAttribute("users", users);
+      }
+    } catch (Exception e) {
+      return;
     }
   }
 }

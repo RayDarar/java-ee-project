@@ -10,8 +10,8 @@
   </head>
   <body>
     <div id="app">
-      <jsp:include page="../components/header.jsp" />
-      <jsp:include page="../components/navigation.jsp" />
+      <jsp:include page="../components/header.jsp" flush="true" />
+      <jsp:include page="../components/navigation.jsp" flush="true" />
       <main class="main">
         <form class="sign-in elevation-1 card" action="sign-in" method="POST">
           <c:if test="${result == false}">
