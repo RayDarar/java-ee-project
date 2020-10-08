@@ -10,4 +10,8 @@ export class RouterService {
   static push(url) {
     location.href = url;
   }
+
+  static reload() {
+    location.reload();
+  }
 }

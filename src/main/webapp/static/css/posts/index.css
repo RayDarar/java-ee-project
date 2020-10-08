@@ -1,0 +1,61 @@
+@import "./make-post.css";
+@import "./comments.css";
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  padding: 0.5em;
+
+  height: calc(100vh - 100px - 64px);
+}
+
+.post {
+  margin-bottom: 2em;
+  padding: 1em;
+}
+.post__header,
+.comment__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+.post__header-user {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.post__header-time {
+  font-size: 0.9rem;
+  color: gray;
+}
+.post__text {
+  font-size: 1rem;
+  line-height: 1.4;
+  margin-bottom: 1.5em;
+}
+
+.comment__header {
+  margin-top: 1em;
+}
+.comment__header-user {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.comment__header-time {
+  font-size: 0.7rem;
+  color: gray;
+}
+.comment__text {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 1.5em;
+}
+
+.add-comment-wrapper {
+  display: flex;
+}
+.add-comment-wrapper .input {
+  margin-right: 1em;
+  flex-grow: 1;
+}

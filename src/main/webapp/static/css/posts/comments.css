@@ -1,0 +1,12 @@
+.comment__text-wrapper {
+  display: flex;
+}
+
+.remove-icon {
+  font-size: 1.5rem;
+  margin-top: -5px;
+  margin-left: 1em;
+  margin-right: 1em;
+  cursor: pointer;
+  align-self: flex-start;
+}

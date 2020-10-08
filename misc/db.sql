@@ -20,7 +20,7 @@ create table posts (
 
 create table comments (
     id integer auto_increment primary key,
-    text varchar(400) not null,
+    text varchar(200) not null,
     creationDate datetime default now(),
     postId integer not null,
     foreign key(postId) references posts(id)
