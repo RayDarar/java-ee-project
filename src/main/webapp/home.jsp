@@ -45,14 +45,15 @@
                   </div>
                 </c:forEach>
               </div>
-              <form action="comments" class="add-comment-wrapper">
+              <form action="create-comment" method="POST" class="add-comment-wrapper">
                 <input
                   type="text"
                   class="input"
                   placeholder="Your comment"
                   name="text"
+                  maxlength="200"
                 />
-                <input type="hidden" name="post-id" />
+                <input type="hidden" name="post-id" value="${post.id}" />
                 <button class="button">Add</button>
               </form>
             </article>

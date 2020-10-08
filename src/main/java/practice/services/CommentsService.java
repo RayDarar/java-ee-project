@@ -48,4 +48,18 @@ public class CommentsService {
       return;
     }
   }
+
+  public static void createComment(int postId, int userId, String text) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "insert into comments(text, postId, userId) values(?, ?, ?);";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        statement.setString(1, text);
+        statement.setInt(2, postId);
+        statement.setInt(3, userId);
+        statement.executeUpdate();
+      }
+    } catch (Exception e) {
+      return;
+    }
+  }
 }
