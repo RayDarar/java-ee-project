@@ -22,12 +22,14 @@
             name="username"
             placeholder="Username"
             class="input"
+            required
           />
           <input
             type="password"
             name="password"
             placeholder="Password"
             class="input"
+            required
           />
           <button class="button" type="submit">Sign-In</button>
           <a class="button button_text" href="sign-up">Go to Sign-Up</a>

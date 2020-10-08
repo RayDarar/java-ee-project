@@ -3,10 +3,10 @@ use java_ee_project;
 
 create table users (
     id integer auto_increment primary key,
-    username varchar(50) not null,
+    username varchar(50) not null unique,
     password varchar(50) not null,
-    firstname varchar(50) not null,
-    lastname varchar(50) not null
+    firstName varchar(50) not null,
+    lastName varchar(50) not null
 );
 
 create table posts (
@@ -15,6 +15,7 @@ create table posts (
     creationDate datetime default now(),
     userId integer not null,
     foreign key(userId) references users(id)
+    on delete cascade
 );
 
 create table comments (
@@ -23,5 +24,32 @@ create table comments (
     creationDate datetime default now(),
     postId integer not null,
     foreign key(postId) references posts(id)
+    on delete cascade
 );
+
+drop table comments;
+drop table posts;
+
+insert into users(username, password, firstName, lastName) values ('raydarar', 'awdawdawd', 'Ansar', 'Ryspekov');
+select * from users;
+delete from users
+where username = 'raydarar';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
