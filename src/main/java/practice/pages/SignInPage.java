@@ -33,7 +33,7 @@ public class SignInPage extends HttpServlet {
       if (result != null && result.getPassword().equals(password)) {
         HttpSession session = req.getSession();
         session.setAttribute("username", username.toLowerCase());
-        getServletContext().getRequestDispatcher("/index.jsp").forward(req, res);
+        getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
         return;
       }
     }

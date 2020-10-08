@@ -6,6 +6,9 @@ export class RouterService {
   static get onEnterPage() {
     return RouterService.url.includes("sign-");
   }
+  static get onIndexPage() {
+    return RouterService.url == "/";
+  }
 
   static push(url) {
     location.href = url;

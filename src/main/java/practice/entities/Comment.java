@@ -7,6 +7,9 @@ public class Comment {
   private String text;
   private Date creationDate;
   private int postId;
+  private int userId;
+  private Post post;
+  private User user;
 
   public int getId() {
     return id;
@@ -23,6 +26,17 @@ public class Comment {
   public int getPostId() {
     return postId;
   }
+  public int getUserId() {
+    return userId;
+  }
+
+  public Post getPost() {
+    return post;
+  }
+
+  public User getUser() {
+    return user;
+  }
 
   public void setId(int value) {
     id = value;
@@ -38,5 +52,17 @@ public class Comment {
 
   public void setPostId(int value) {
     postId = value;
+  }
+
+  public void setUserId(int value) {
+    userId = value;
+  }
+
+  public void setPost(Post value) {
+    post = value;
+  }
+
+  public void setUser(User value) {
+    user = value;
   }
 }

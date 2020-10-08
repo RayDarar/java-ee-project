@@ -7,10 +7,10 @@ import "./comments.js";
 async function main() {
   const result = await TokenService.checkToken();
   if (result && RouterService.onEnterPage) {
-    RouterService.push("/");
+    RouterService.push("/home");
   } else if (!result && !RouterService.onEnterPage) {
     RouterService.push("/sign-in");
   }
 }
 
-// main();
+main();

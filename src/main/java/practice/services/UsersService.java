@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
-import java.sql.Statement;
-
-import javax.xml.stream.events.StartElement;
 
 import practice.common.ResultMessages;
 import practice.entities.User;

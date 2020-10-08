@@ -52,6 +52,6 @@ public class SignUpPage extends HttpServlet {
 
     HttpSession session = req.getSession();
     session.setAttribute("username", username.toLowerCase());
-    getServletContext().getRequestDispatcher("/index.jsp").forward(req, res);
+    getServletContext().getRequestDispatcher("/home.jsp").forward(req, res);
   }
 }
