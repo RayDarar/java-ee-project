@@ -1,4 +1,4 @@
-package practice.api;
+package practice.api.posts;
 
 import java.io.IOException;
 

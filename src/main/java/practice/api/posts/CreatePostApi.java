@@ -1,4 +1,4 @@
-package practice.api;
+package practice.api.posts;
 
 import java.io.IOException;
 
@@ -8,17 +8,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import practice.services.CommentsService;
+import practice.entities.User;
+import practice.services.PostsService;
 import practice.services.SessionService;
+import practice.services.UsersService;
 
-@WebServlet("/delete-comment")
-public class DeleteCommentApi extends HttpServlet {
+@WebServlet("/create-post")
+public class CreatePostApi extends HttpServlet {
   private static final long serialVersionUID = 1L;
 
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-    int commentId = Integer.parseInt(req.getParameter("comment-id"));
-    CommentsService.deleteCommentById(commentId);
+    String token = SessionService.getToken(req);
+    if (token != null) {
+      String text = req.getParameter("text");
+      User user = UsersService.findOne(token);
+
+      PostsService.createPost(user.getId(), text);
+    }
 
     SessionService.redirectBack(req, res);
   }
