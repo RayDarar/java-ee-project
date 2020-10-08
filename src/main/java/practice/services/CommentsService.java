@@ -8,6 +8,7 @@ import java.util.List;
 
 import practice.entities.Comment;
 import practice.entities.Post;
+import practice.entities.User;
 
 public class CommentsService {
   public static List<Comment> getPostComments(Post post) {
@@ -25,8 +26,10 @@ public class CommentsService {
           comment.setCreationDate(resultSet.getDate(3));
           comment.setPost(post);
           comment.setPostId(post.getId());
-          comment.setUser(post.getUser());
-          comment.setUserId(post.getUserId());
+          // not very optimized
+          User user = UsersService.findOne(resultSet.getInt(5));
+          comment.setUser(user);
+          comment.setUserId(user.getId());
 
           result.add(comment);
         }

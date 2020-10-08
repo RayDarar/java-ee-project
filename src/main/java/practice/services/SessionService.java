@@ -12,9 +12,19 @@ public class SessionService {
     return (String) session.getAttribute("username");
   }
 
+  public static String getGuestName(HttpServletRequest req) {
+    HttpSession session = req.getSession();
+    return (String) session.getAttribute("guestName");
+  }
+
   public static void setToken(HttpServletRequest req, String username) {
     HttpSession session = req.getSession();
     session.setAttribute("username", username.toLowerCase());
+  }
+
+  public static void setGuestName(HttpServletRequest req, String username) {
+    HttpSession session = req.getSession();
+    session.setAttribute("guestName", username.toLowerCase());
   }
 
   public static void redirectBack(HttpServletRequest req, HttpServletResponse res) throws IOException {

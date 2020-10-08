@@ -58,6 +58,29 @@ public class UsersService {
     }
   }
 
+  public static User findOne(int id) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "select * from users where id = ?";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        statement.setInt(1, id);
+
+        ResultSet result = statement.executeQuery();
+        if (!result.next())
+          return null;
+
+        User user = new User();
+        user.setId(result.getInt(1));
+        user.setUsername(result.getString(2));
+        user.setPassword(result.getString(3));
+        user.setFirstName(result.getString(4));
+        user.setLastName(result.getString(5));
+        return user;
+      }
+    } catch (Exception e) {
+      return null;
+    }
+  }
+
   public static void setNavUsers(HttpServletRequest req) {
     try (Connection conn = DatabaseService.getConnection()) {
       String sql = "select * from users";
