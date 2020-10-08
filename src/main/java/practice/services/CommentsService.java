@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
+import practice.common.ResultMessages;
 import practice.entities.Comment;
 import practice.entities.Post;
 
@@ -34,6 +35,18 @@ public class CommentsService {
       }
     } catch (Exception e) {
       return new ArrayList<>();
+    }
+  }
+
+  public static void deleteCommentById(int commentId) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "delete from comments where id = ?";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        statement.setInt(1, commentId);
+        statement.executeUpdate();
+      }
+    } catch (Exception e) {
+      return;
     }
   }
 }

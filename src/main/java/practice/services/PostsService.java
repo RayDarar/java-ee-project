@@ -35,4 +35,17 @@ public class PostsService {
       return new ArrayList<>();
     }
   }
+
+  public static void deletePostById(int postId) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "delete posts where id = ?";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        statement.setInt(1, postId);
+        statement.executeUpdate();
+      }
+    } catch (Exception e) {
+      // bad one, but handling error logs is time consuming for such little project
+      return;
+    }
+  }
 }

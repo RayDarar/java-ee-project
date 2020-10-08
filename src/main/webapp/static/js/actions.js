@@ -7,7 +7,7 @@ const actions = {
     RouterService.push("/sign-in");
   },
   goHome() {
-    RouterService.push("/");
+    RouterService.push("/home");
   },
 };
 

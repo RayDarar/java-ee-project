@@ -28,18 +28,19 @@
               </div>
               <div class="comments">
                 <c:forEach var="comment" items="${post.comments}">
-                  <div class="comment" data-id="${comment.id}">
+                  <div class="comment">
                     <hr class="hr" />
                     <header class="comment__header">
                       <p class="comment__header-user">${comment.user.firstName} ${comment.user.lastName}</p>
                       <p class="comment__header-time">${comment.creationDate}</p>
                     </header>
-                    <div class="comment__text-wrapper">
+                    <form action="delete-comment" method="POST" class="comment__text-wrapper">
                       <p class="comment__text">
                         ${comment.text}
                       </p>
-                      <div class="icon remove-icon">x</div>
-                    </div>
+                      <button class="icon remove-icon" type="submit">x</button>
+                      <input type="hidden" name="comment-id" value="${comment.id}" />
+                    </form>
                   </div>
                 </c:forEach>
               </div>

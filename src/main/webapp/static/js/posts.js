@@ -23,7 +23,7 @@ function run() {
     button.onclick = async () => {
       const body = new FormData();
       body.append("post-id", +post.dataset.id);
-      await fetch("/posts", {
+      await fetch("posts", {
         method: "DELETE",
         body,
       });
