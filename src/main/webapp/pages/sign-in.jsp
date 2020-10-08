@@ -13,7 +13,7 @@
       <jsp:include page="../components/header.jsp" />
       <jsp:include page="../components/navigation.jsp" />
       <main class="main">
-        <form class="sign-in elevation-1 card" action="/sign-in" method="POST">
+        <form class="sign-in elevation-1 card" action="sign-in" method="POST">
           <c:if test="${result == false}">
             <p class="error-message">Invalid username or password, try again</p>
           </c:if>

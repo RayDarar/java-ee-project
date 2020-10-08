@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import practice.entities.User;
+import practice.services.UsersService;
+
 @WebServlet("/sign-in")
 public class SignInPage extends HttpServlet {
   private static final long serialVersionUID = 1L;
@@ -24,11 +27,15 @@ public class SignInPage extends HttpServlet {
     String username = req.getParameter("username");
     String password = req.getParameter("password");
 
-    if (username.equals("RayDarar") && password.equals("awdawdawd")) {
-      HttpSession session = req.getSession();
-      session.setAttribute("username", username);
-      getServletContext().getRequestDispatcher("/index.jsp").forward(req, res);
-      return;
+    if (username != null) {
+      User result = UsersService.findOne(username.toLowerCase());
+
+      if (result != null && result.getPassword().equals(password)) {
+        HttpSession session = req.getSession();
+        session.setAttribute("username", username.toLowerCase());
+        getServletContext().getRequestDispatcher("/index.jsp").forward(req, res);
+        return;
+      }
     }
 
     req.setAttribute("result", false);

@@ -2,7 +2,11 @@ package practice.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.sql.Statement;
+
+import javax.xml.stream.events.StartElement;
 
 import practice.common.ResultMessages;
 import practice.entities.User;
@@ -27,6 +31,28 @@ public class UsersService {
         return ResultMessages.USER_ALREADY_EXISTS;
       }
       return ResultMessages.INTERNAL_ERROR;
+    }
+  }
+
+  public static User findOne(String username) {
+    try (Connection conn = DatabaseService.getConnection()) {
+      String sql = "select * from users where username = ?";
+      try (PreparedStatement statement = conn.prepareStatement(sql)) {
+        statement.setString(1, username);
+
+        ResultSet result = statement.executeQuery();
+        if (!result.next()) return null;
+
+        User user = new User();
+        user.setId(result.getInt(1));
+        user.setUsername(result.getString(2));
+        user.setPassword(result.getString(3));
+        user.setFirstName(result.getString(4));
+        user.setLastName(result.getString(5));
+        return user;
+      }
+    } catch (Exception e) {
+      return null;
     }
   }
 }
