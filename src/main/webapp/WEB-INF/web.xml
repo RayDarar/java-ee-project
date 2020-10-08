@@ -9,7 +9,7 @@
 
   <error-page>
     <error-code>404</error-code>
-    <location>/handlers/404.html</location>
+    <location>/handlers/404.jsp</location>
   </error-page>
 
   <error-page>

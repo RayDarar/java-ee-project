@@ -5,3 +5,15 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+.handler {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.handler > * {
+  margin: 1em;
+}
