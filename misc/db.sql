@@ -29,35 +29,3 @@ create table comments (
     foreign key(userId) references users(id)
     on delete cascade
 );
-
-drop table comments;
-drop table posts;
-
-insert into users(username, password, firstName, lastName) values ('raydarar', 'awdawdawd', 'Ansar', 'Ryspekov');
-insert into posts(text, userId) values('Wow, this is a test post', 4);
-insert into comments(text, postId, userId) values('Nice one!', 1, 4);
-
-select * from users;
-select * from posts;
-select * from comments;
-delete from users
-where username = 'raydarar';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
