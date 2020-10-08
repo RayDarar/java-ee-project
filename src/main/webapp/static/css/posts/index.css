@@ -29,6 +29,9 @@
   font-size: 0.9rem;
   color: gray;
 }
+.post__text-wrapper {
+  display: flex;
+}
 .post__text {
   font-size: 1rem;
   line-height: 1.4;
